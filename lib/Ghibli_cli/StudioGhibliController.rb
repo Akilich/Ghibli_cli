@@ -3,11 +3,12 @@ class StudioGhibliController
   
   attr_reader :producer
   
-  def initialize(producer)
+  def initialize
     @producer = producer
     importer_obj = Producer.new(name)
     importer_obj.import
   end
+  
   def call
     input = ''
     while input != 'exit'
