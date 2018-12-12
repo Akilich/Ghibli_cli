@@ -21,6 +21,6 @@ class Producer
 end
 
 def Producer.all
-    puts @@all.map{ |dog| dog.name }
+    puts @@all.map{ |producer| producer.name }
   end
 end
