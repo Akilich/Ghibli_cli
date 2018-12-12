@@ -1,6 +1,9 @@
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+git_source(:github) {|ghibli_cli| "https://github.com/Ghibli_cli" }
 
-# Specify your gem's dependencies in Ghibli_cli.gemspec
-gemspec
+gem 'rake'
+gem 'pry'
+gem 'require_all'
+gem 'pry-byebug'
+

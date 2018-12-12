@@ -5,7 +5,7 @@ require "Ghibli_cli/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "Ghibli_cli"
-  spec.version       = StudioGhibliController::VERSION
+  spec.version       = Controller::VERSION
   spec.authors       = ["'Akili Humphrey'"]
   spec.email         = ["'akilihumphrey@gmail.com'"]
 
