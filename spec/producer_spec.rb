@@ -1,4 +1,6 @@
 require "spec_helper"
+require './lib/Ghibli_cli/producer.rb'
+
 
 describe "Producer" do
   let(:producer) { Producer.new("Isao Takahata") }

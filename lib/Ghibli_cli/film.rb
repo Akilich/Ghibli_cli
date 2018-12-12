@@ -2,18 +2,12 @@ class Film
  
   attr_accessor :title, :release_date, :producer, :rt_score, :description
  
-  @@all = []
- 
   def initialize
-    @@all << self
+    @title = title
+    @release_date = release_date
+    @producer = producer
+    @rt_score = rt_score
+    @description = description
+    
   end
- 
-  def self.all
-    @@all
-  end
- 
-  def self.reset_all
-    @@all.clear
-  end
- 
 end
