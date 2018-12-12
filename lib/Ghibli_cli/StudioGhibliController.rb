@@ -1,6 +1,13 @@
 #CLI controller
 class StudioGhibliController
   
+  attr_reader :producer
+  
+  def initialize(producer)
+    @producer = producer
+    importer_obj = Producer.new(name)
+    importer_obj.import
+  end
   def call
     input = ''
     while input != 'exit'
@@ -19,13 +26,11 @@ class StudioGhibliController
   end
   
   def list_producers
-    puts <<-DOC
-    Enter a producer from the list:
-      Isao Takahata, Toru Hara, Hayao Miyazaki, Toshio Suzuki, Nozomu Takahashi, Yoshiaki Nishimura, Seiichiro Ujiie
-    DOC
+    Producer.all
+    puts "Enter a producer from the list:"
+    @@all.map{ |producer| producer.name }
   end
-  
-  
+    
   def generate_from_producer
     puts film_info
   end
