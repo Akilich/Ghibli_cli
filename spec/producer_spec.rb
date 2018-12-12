@@ -1,8 +1,10 @@
-require "spec_helper"
-require './lib/Ghibli_cli/producer.rb'
+#!/usr/bin/env ruby
+require_relative "spec_helper"
+require_relative './lib/Ghibli_cli/producer.rb'
 
 
 describe "Producer" do
+  
   let(:producer) { Producer.new("Isao Takahata") }
 
   describe "#initialize" do
@@ -30,3 +32,4 @@ describe "Producer" do
       expect(producer_name).to eq("Isao Takahata")
     end
   end
+end

@@ -1,4 +1,4 @@
 require 'bundler'
 Bundler.require
 
-require_all './lib/Ghibli_cli'
+require './lib/Ghibli_cli'

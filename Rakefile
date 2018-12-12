@@ -5,5 +5,5 @@ require 'pry'
 RSpec::Core::RakeTask.new(:spec)
 
 task :console do
-  pry.start
+  Pry.start
 end
