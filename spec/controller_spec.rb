@@ -1,4 +1,5 @@
 require "spec_helper"
+require_relative "./lib/Ghibli_cli/studioghiblicontroller.rb"
 
 describe "StudioGhibliController" do
   describe "#initialize" do
@@ -37,12 +38,7 @@ describe "StudioGhibliController" do
       expect($stdout).to receive(:puts).with("Welcome to the Studio Ghibli Movie Generator!")
       expect($stdout).to receive(:puts).with("You can generate a random Studio Ghibli film by its producer.")
       expect($stdout).to receive(:puts).with("To list all film producers, enter 'list producers'.")
-      expect($stdout).to receive(:puts).with("To list all of the genres in your library, enter 'list genres'.")
-      expect($stdout).to receive(:puts).with("To list all of the songs by a particular artist, enter 'list artist'.")
-      expect($stdout).to receive(:puts).with("To list all of the songs of a particular genre, enter 'list genre'.")
-      expect($stdout).to receive(:puts).with("To play a song, enter 'play song'.")
-      expect($stdout).to receive(:puts).with("To quit, type 'exit'.")
-      expect($stdout).to receive(:puts).with("What would you like to do?")
+      expect($stdout).to receive(:puts).with("To generate a random film by producer, enter the name of the producer.")
 
       studio_ghibli_controller.call
     end
