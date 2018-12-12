@@ -2,41 +2,41 @@ require "spec_helper"
 
 describe "StudioGhibliController" do
   describe "#initialize" do
-    it "accepts one argument, the path to the MP3 files to be imported" do
-      expect{ StudioGhibliController.new("./spec/fixtures/mp3s") }.to_not raise_error
+    it "accepts one argument, producer to be imported" do
+      expect{ StudioGhibliController.new("./lib/Ghibli_cli/api_scraper") }.to_not raise_error
     end
 
-    it "creates a new MusicImporter object, passing in the 'path' value" do
-      expect(MusicImporter).to receive(:new).with("./spec/fixtures/mp3s").and_return(double(MusicImporter, import: true))
+    it "creates a new Scraper object, passing in the 'path' value" do
+      expect(Scraper).to receive(:new).with("./spec/fixtures/mp3s").and_return(double(Scraper, import: true))
 
       StudioGhibliController.new("./spec/fixtures/mp3s")
     end
 
     it "the 'path' argument defaults to './db/mp3s'" do
-      expect(MusicImporter).to receive(:new).with("./db/mp3s").and_return(double(MusicImporter, import: true))
+      expect(Scraper).to receive(:new).with("./db/mp3s").and_return(double(Scraper, import: true))
 
       StudioGhibliController.new
     end
 
-    it "invokes the #import method on the created MusicImporter object" do
-      music_importer = MusicImporter.new("./spec/fixtures/mp3s")
+    it "invokes the #import method on the created Scraper object" do
+      scraper = Scraper.new("./spec/fixtures/mp3s")
 
-      expect(MusicImporter).to receive(:new).and_return(music_importer)
-      expect(music_importer).to receive(:import)
+      expect(Scraper).to receive(:new).and_return(scraper)
+      expect(scraper).to receive(:import)
 
-      MusicLibraryController.new
+      StudioGhibliController.new
     end
   end
 
   describe "#call" do
-    let(:music_library_controller) { MusicLibraryController.new("./spec/fixtures/mp3s") }
+    let(:studio_ghibli_controller) { StudioGhibliController.new("./spec/fixtures/mp3s") }
 
     it "welcomes the user" do
-      allow(music_library_controller).to receive(:gets).and_return("exit")
+      allow(studio_ghibli_controller).to receive(:gets).and_return("exit")
 
-      expect($stdout).to receive(:puts).with("Welcome to your music library!")
-      expect($stdout).to receive(:puts).with("To list all of your songs, enter 'list songs'.")
-      expect($stdout).to receive(:puts).with("To list all of the artists in your library, enter 'list artists'.")
+      expect($stdout).to receive(:puts).with("Welcome to the Studio Ghibli Movie Generator!")
+      expect($stdout).to receive(:puts).with("You can generate a random Studio Ghibli film by its producer.")
+      expect($stdout).to receive(:puts).with("To list all film producers, enter 'list producers'.")
       expect($stdout).to receive(:puts).with("To list all of the genres in your library, enter 'list genres'.")
       expect($stdout).to receive(:puts).with("To list all of the songs by a particular artist, enter 'list artist'.")
       expect($stdout).to receive(:puts).with("To list all of the songs of a particular genre, enter 'list genre'.")
@@ -44,23 +44,23 @@ describe "StudioGhibliController" do
       expect($stdout).to receive(:puts).with("To quit, type 'exit'.")
       expect($stdout).to receive(:puts).with("What would you like to do?")
 
-      music_library_controller.call
+      studio_ghibli_controller.call
     end
 
     it "asks the user for input" do
-      allow(music_library_controller).to receive(:gets).and_return("exit")
+      allow(studio_ghibli_controller).to receive(:gets).and_return("exit")
 
-      expect(music_library_controller).to receive(:gets)
+      expect(studio_ghibli_controller).to receive(:gets)
 
-      capture_puts { music_library_controller.call }
+      capture_puts { studio_ghibli_controller.call }
     end
 
     it "loops and asks for user input until they type in exit" do
-      allow(music_library_controller).to receive(:gets).and_return("a", "b", "c", "exit")
+      allow(studio_ghibli_controller).to receive(:gets).and_return("a", "b", "c", "exit")
 
-      expect(music_library_controller).to receive(:gets).exactly(4).times
+      expect(studio_ghibli_controller).to receive(:gets).exactly(4).times
 
-      capture_puts { music_library_controller.call }
+      capture_puts { studio_ghibli_controller.call }
     end
   end
 end
