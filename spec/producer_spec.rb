@@ -31,10 +31,10 @@ describe "Producer" do
 
   describe ".new" do
     it "initializes with an argument of a name" do
-      expect{Producer.new("Snoopy")}.to_not raise_error
+      expect{Producer.new("Isao Takahata")}.to_not raise_error
     end
     it "adds the new dog to the @@all array" do
-      expect(Producer.class_variable_get(:@@all)).to match([pluto, fido, maddy])
+      expect(Producer.class_variable_get(:@@all)).to match([isao takahata, toru hara, hayao miyazakiy])
     end
   end
 
