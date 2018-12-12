@@ -4,7 +4,7 @@ require_relative "./lib/producer.rb"
 
 describe "Producer" do
 
-  let!(:pluto) { Producer.new("Isao Takahata") }
+  let!(:takahata) { Producer.new("Isao Takahata") }
   
 
   after(:each) do
@@ -35,13 +35,13 @@ describe "Producer" do
       expect{Producer.new("Isao Takahata")}.to_not raise_error
     end
     it "adds the new dog to the @@all array" do
-      expect(Producer.class_variable_get(:@@all)).to match([isao takahata, toru hara, hayao miyazakiy])
+      expect(Producer.class_variable_get(:@@all)).to match([takahata, hara, miyazakiy])
     end
   end
 
   describe "#name" do
     it "has a name" do
-      expect(pluto.name).to eq("Pluto")
+      expect(takahata.name).to eq("Isao Takahata")
     end
   end
 end
