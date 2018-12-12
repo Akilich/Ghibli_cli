@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require_relative "spec_helper"
-require_relative "./lib/producer.rb"
+require_relative "./lib/Ghibli_cli/producer.rb"
 
 describe "Producer" do
 
