@@ -9,34 +9,28 @@ class Film
   
   def initialize(film_hash)
      @@all << self
-     @title = film_hash["title"]
-     @release_date = film_hash["release_date"]
-     @producer = film_hash["producer"]
-     @rt_score = film_hash["rt_score"]
-     @description = film_hash["description"]
-    
-    film_hash.each do |method, arg|
-      if self.respond_to?("#{method}=")
-        self.send("#{method}=", arg)
-      end
+     @title = film_hash[:title]
+     @release_date = film_hash[:release_date]
+     @producer = film_hash[:producer]
+     @rt_score = film_hash[:rt_score]
+     @description = film_hash[:description]
+  end
+  
+  def self.create_films(films_array)
+    films_array.each do |film|
+    new(film)
     end
   end
+  
+  def add_film_attributes(attributes_hash)
+    attirubtes_hash.each do |attribute_key, attribute_value|
+      send("#{attribute_key}=", attribute_value)
+    end
+  end
+  
   
   def self.all
     @@all
   end
   
-  def self.save
-    @@all << self
-  end
-
-  def self.create(title)
-    film = self.new(title)
-    @@all << self
-    film
-  end
-  
-  def find_by_title(title)
-        self.all.find{|film| film.title == title}
-  end
 end

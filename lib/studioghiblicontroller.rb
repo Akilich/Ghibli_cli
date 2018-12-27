@@ -1,12 +1,17 @@
 require_relative "../lib/film.rb"
 require_relative "../lib/api_scraper.rb"
 
-class StudioGhibliController < Film
+class StudioGhibliController < Scraper
+  BASE_URL = "https://ghibliapi.herokuapp.com"
   
   attr_reader :title, :release_date, :producer, :rt_score, :description
   
   def initialize
-    @film_hash 
+    @title
+    @release_date
+    @producer
+    @rt_score
+    @description 
   end
   
   def call
@@ -32,10 +37,10 @@ class StudioGhibliController < Film
   end
   
   def list_films
-    Film.all
-        puts "#{title}"
-        end
-    end
+  films_array = Scraper.get_films(BASE_URL + '/films')
+  Film.create_films(films_array)
+    
+  end
     puts "Enter a film name for its information"
   
       
@@ -49,11 +54,13 @@ class StudioGhibliController < Film
       puts "  description:"  " #{film.description}"
       puts "To generate a random film suggestion, enter 'random'."
     end
-  #end
+  
   
     
   def generate_random_film
     Film.all.sample
     puts "#{film.title}"
+   end
   end
-end
+ end
+ 
