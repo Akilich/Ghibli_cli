@@ -52,4 +52,3 @@ class StudioGhibliController
     Film.all.sample
     puts "#{film.title}"
   end
-end

@@ -4,6 +4,24 @@ require_relative "../lib/film.rb"
 describe "Film" do 
 
   let(:film) {Film.new}
+  
+  describe "@@all" do
+    it "is initialized as an empty array" do
+      all = Film.class_variable_get(:@@all)
+
+      expect(all).to match_array([])
+    end
+  end
+
+  describe ".all" do
+    it "returns the class variable @@all" do
+      expect(Film.all).to match_array([film])
+
+      Film.class_variable_set(:@@all, [film])
+
+      expect(Film.all).to match_array([film])
+    end
+  end
 
   context "instance methods" do 
     describe "#title" do 
