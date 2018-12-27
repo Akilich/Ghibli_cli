@@ -21,7 +21,6 @@ class Film
       end
     end
   end
-  end   
   
   def self.all
     @@all
@@ -40,4 +39,4 @@ class Film
   def find_by_title(title)
         self.all.find{|film| film.title == title}
   end
-
+end

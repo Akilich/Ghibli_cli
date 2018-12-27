@@ -32,17 +32,16 @@ class StudioGhibliController < Film
   end
   
   def list_films
-    Film.all.each do |film, i|
-      if i
-        puts "#{i}. #{film.title}"
-      end
+    Film.all
+        puts "#{title}"
+        end
     end
     puts "Enter a film name for its information"
-  end
+  
       
   
   def film_info
-    #Film.all.each do |film|
+    Film.all.each do |film|
       puts " title: " "#{film.title.upcase}"
       puts "  release_date:"  " #{film.release_date}"
       puts "  producer:"  " #{film.producer}"

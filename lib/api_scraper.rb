@@ -20,9 +20,6 @@ class Scraper
 # response.code
 # response.body
     
-  Film.get_films.map do |film_hash|
-  Film.new(film_hash)
-end
     
     def make_films
       self.get_films.each do |text|
