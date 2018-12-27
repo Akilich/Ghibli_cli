@@ -1,10 +1,13 @@
 require_relative "../lib/film.rb"
 require_relative "../lib/api_scraper.rb"
-Film::Scraper
-class StudioGhibliController
+
+class StudioGhibliController < Film
   
   attr_reader :title, :release_date, :producer, :rt_score, :description
   
+  def initialize
+    @film_hash 
+  end
   
   def call
     input = ''
