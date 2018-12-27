@@ -7,18 +7,18 @@ class Film
   
   attr_accessor :title, :release_date, :producer, :rt_score, :description
   
-  def initialize(film_hash)
+  def initialize
      @@all << self
-     @title = film_hash[:title]
-     @release_date = film_hash[:release_date]
-     @producer = film_hash[:producer]
-     @rt_score = film_hash[:rt_score]
-     @description = film_hash[:description]
+     @title = title
+     @release_date = release_date
+     @producer = producer
+     @rt_score = rt_score
+     @description = description
   end
   
   def self.create_films(films_array)
     films_array.each do |film|
-    new(film)
+    film
     end
   end
   
