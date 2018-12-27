@@ -1,5 +1,5 @@
-require_relative "./spec_helper"
-require_relative "./lib/Ghibli_cli/film.rb"
+require_relative "./spec_helper.rb"
+require_relative "../lib/film.rb"
 
 describe "Film" do 
 
