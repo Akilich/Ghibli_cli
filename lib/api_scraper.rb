@@ -1,3 +1,5 @@
+require_relative "../lib/film.rb"
+
 require 'open-uri'
 require 'nokogiri'
 require 'net/http'
@@ -10,22 +12,31 @@ class Scraper
       #JSON.parse(film_information)
       Nokogiri::HTML(open("https://ghibliapi.herokuapp.com/films"))
       film_information = Nokogiri::HTML#(html)
-      films ={ }
-      
-    
-    self.get_films.each do |film|
-    title = film("title").text
-    projects[title.to_sym] = {
-      :release_date => film("release_date").attribute("src").value,
-      :producer => film("producer").text,
-      :rt_score => film("rt_score").text,
-      :descr=> film("description").text
-    }
     end
+    
+    def get_film_title
+      self.get_films
+    end
+    
+    def make_films
+      self.get_film_title.each do |text|
+        film=Film.new
+        film.title=("title").text
+      end
+    end
+        
+    def print_films
+      self.make_films
+      Film.all.each do |film|
+        if course.title 
+          puts "Title: #{film.title}"
+        end
+      end
+    end
+    
   
-    films
+    
   end
-end
 
 
 #:title, :release_date, :producer, :rt_score, :description
