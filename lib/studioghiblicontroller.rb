@@ -19,17 +19,17 @@ class StudioGhibliController
       case input
       when 'list films'
         list_films
-      when "#{film.title}"
+      when "#{title}"
         film_info
       when 'random'
         generate_random_film
-        puts "Might we suggest this film. Grab some popcorn!"
+        puts "Ah, a classic! Grab some popcorn, you're in for a treat."
       end
     end
   end
   
   def list_films
-    Scraper.get_films.map do |film|
+    Scraper.get_films
     Film.all.each do |film, i|
       if i
         puts "#{i}. #{film.title}"
@@ -37,7 +37,6 @@ class StudioGhibliController
     end
     puts "Enter a film name for its information"
   end
-end
       
   
   def film_info
@@ -49,10 +48,11 @@ end
       puts "  description:"  " #{film.description}"
       puts "To generate a random film suggestion, enter 'random'."
     end
-  end
+  #end
   
     
   def generate_random_film
     Film.all.sample
     puts "#{film.title}"
   end
+end
