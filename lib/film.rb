@@ -1,4 +1,5 @@
 require_relative "../lib/api_scraper.rb"
+require 'json'
 
 class Film
   @@all = [ ]
