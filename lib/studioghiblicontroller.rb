@@ -1,7 +1,9 @@
-#CLI controller
+require_relative "../lib/film.rb"
+require_relative "../lib/api_scraper.rb"
+
 class StudioGhibliController
   
-  attr_reader :film , :producer
+  attr_reader :title, :release_date, :producer, :rt_score, :description
   
   def initialize
     @film = film
@@ -35,12 +37,11 @@ class StudioGhibliController
   
   def film_info
     Film.all.each do |film|
-      puts "#{film.name.upcase}"
-      puts "  location:"  " #{film.location}"
-      puts "  profile quote:"  " #{film.profile_quote}"
-      puts "  bio:"  " #{film.bio}"
-      puts "  twitter:"  " #{film.twitter}"
-      puts "  linkedin:"  " #{student.linkedin}"
+      puts " title: " "#{film.name.upcase}"
+      puts "  release_date:"  " #{film.release_date}"
+      puts "  producer:"  " #{film.producer}"
+      puts "  rt_score:"  " #{film.rt_score}"
+      puts "  description:"  " #{film.description}"
     end
   end
   
@@ -48,6 +49,4 @@ class StudioGhibliController
   def generate_random_film
     [].sample
   end
-
-
 end
