@@ -9,14 +9,23 @@ require 'pry'
 
 class Scraper
     def self.get_films
-    data = open("https://ghibliapi.herokuapp.com/films")
-    JSON.parse(data)
-  end
+    doc = Nokogiri::HTML(open("https://ghibliapi.herokuapp.com/films"))
+    title = doc.search("title").text
+    end
       
   binding.pry
-  #title = http.request("title")
-  #release_date = http.request("release_date").text
-  #producer = http.request("producer").text
-  #rt_score = http.request("rt_score").text
-  #description = http.request("description").text
+  
+  def initialize(title_hash)
+    title_hash.each do |method,arg|
+      if self.respond_to?("#{method}=")
+        self.send("#{method}=",arg) 
+      end   
+     end
+   end
+end  
+
+  api = Scraper.new
+  results = api.get_films.map do |title_hash|
+    Film.new(title_hash)
+  end
 end
