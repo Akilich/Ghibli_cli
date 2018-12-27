@@ -11,4 +11,5 @@ class Scraper
   end
 end
 
+
 #:title, :release_date, :producer, :rt_score, :description
