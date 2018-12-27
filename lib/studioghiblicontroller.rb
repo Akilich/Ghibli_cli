@@ -3,9 +3,7 @@ require_relative "../lib/api_scraper.rb"
 
 
 class StudioGhibliController
-  
-  attr_reader :title, :release_date, :producer, :rt_score, :description
-  
+  attr_accessor :film
   
   def call
     input = ''
@@ -30,8 +28,8 @@ class StudioGhibliController
   end
   
   def list_films
-    films_array = Scraper.get_films
-    Film.create_films(films_array)
+    Film.all
+    puts "#{film.title}"
   end
     
   
