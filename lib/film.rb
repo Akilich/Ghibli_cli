@@ -9,10 +9,12 @@ class Film
   
   def initialize(film_hash)
      @@all << self
-    # @id = show_hash["id"]
-    # @name = show_hash["name"]
-    # @url = show_hash["url"]
-    # @genres = show_hash["genres"]
+     @title = film_hash["title"]
+     @release_date = film_hash["release_date"]
+     @producer = film_hash["producer"]
+     @rt_score = film_hash["rt_score"]
+     @description = film_hash["description"]
+    
     film_hash.each do |method, arg|
       if self.respond_to?("#{method}=")
         self.send("#{method}=", arg)
