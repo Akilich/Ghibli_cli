@@ -1,5 +1,5 @@
 require "spec_helper"
-require_relative "./lib/Ghibli_cli/studioghiblicontroller.rb"
+require_relative "./lib/studioghiblicontroller.rb"
 
 describe "StudioGhibliController" do
   describe "#initialize" do

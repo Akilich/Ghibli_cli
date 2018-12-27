@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require './lib/Ghibli/studioghiblicontroller.rb'
+require './lib/studioghiblicontroller.rb'
 
 StudioGhibliController.new.call

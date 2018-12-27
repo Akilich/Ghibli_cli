@@ -1,1 +1,1 @@
-require_relative "Ghibli/version"
+require_relative "./lib/version"
