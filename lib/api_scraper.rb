@@ -7,3 +7,4 @@ def self.get_films
     JSON.parse(data)
   end
 end
+

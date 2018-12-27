@@ -31,6 +31,7 @@ class StudioGhibliController
   
   def list_films
    Film.all
+   puts "#{title}"
   end
   
   def list_producers
