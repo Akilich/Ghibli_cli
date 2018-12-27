@@ -19,7 +19,7 @@ class StudioGhibliController
       case input
       when 'list films'
         list_films
-      when "#{title}"
+      when "#{film.title}"
         film_info
       when 'random'
         generate_random_film
@@ -29,13 +29,17 @@ class StudioGhibliController
   end
   
   def list_films
-    Film.all.sort { |a, b| a.name <=> b.name }.each.with_index(1) do |title, index|
-      puts "#{index}. #{title}"
-      puts "Enter a film name for its information"
+    Scraper.get_films.map do |film|
+    Film.all.each do |film, i|
+      if i
+        puts "#{i}. #{film.title}"
+      end
     end
+    puts "Enter a film name for its information"
   end
+end
+      
   
-
   def film_info
     #Film.all.each do |film|
       puts " title: " "#{film.title.upcase}"
