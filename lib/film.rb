@@ -1,4 +1,5 @@
 require_relative "../lib/api_scraper.rb"
+require_relative "../lib/studioghiblicontroller.rb"
 require 'json'
 
 class Film
@@ -6,13 +7,18 @@ class Film
   
   attr_accessor :title, :release_date, :producer, :rt_score, :description
   
-  def initialize(title, release_date=nil, producer=nil, rt_score=nil, description=nil)
+  def initialize(film_hash)
      @@all << self
-     @title=title
-     self.release_date=(release_date) if release_date !=nil
-     self.producer=(producer) if producer != nil
-     self.rt_score=(rt_score) if rt_score !=nil
-     self.description=(description) if description !=nil
+    # @id = show_hash["id"]
+    # @name = show_hash["name"]
+    # @url = show_hash["url"]
+    # @genres = show_hash["genres"]
+    film_hash.each do |method, arg|
+      if self.respond_to?("#{method}=")
+        self.send("#{method}=", arg)
+      end
+    end
+  end
   end   
   
   def self.all
@@ -31,13 +37,5 @@ class Film
   
   def find_by_title(title)
         self.all.find{|film| film.title == title}
-    end
-  
-  #def make_film
-  # self.film.each do |method, arg|
-  #    if self.respond_to?("#{method}=")
-  #      self.send("#{method}=", arg)
-  #    end
-  #  end
-  #end
-end
+  end
+

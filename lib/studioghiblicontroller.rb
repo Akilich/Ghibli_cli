@@ -1,6 +1,6 @@
 require_relative "../lib/film.rb"
 require_relative "../lib/api_scraper.rb"
-
+Film::Scraper
 class StudioGhibliController
   
   attr_reader :title, :release_date, :producer, :rt_score, :description
@@ -29,7 +29,6 @@ class StudioGhibliController
   end
   
   def list_films
-    Scraper.get_films
     Film.all.each do |film, i|
       if i
         puts "#{i}. #{film.title}"
