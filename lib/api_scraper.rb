@@ -13,19 +13,4 @@ class Scraper
     title = doc.search("title").text
     end
       
-  binding.pry
   
-  def initialize(title_hash)
-    title_hash.each do |method,arg|
-      if self.respond_to?("#{method}=")
-        self.send("#{method}=",arg) 
-      end   
-     end
-   end
-end  
-
-  api = Scraper.new
-  results = api.get_films.map do |title_hash|
-    Film.new(title_hash)
-  end
-end

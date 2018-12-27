@@ -12,11 +12,9 @@ class Film
      @title = film_hash["title"]
   end
   
-  
-  
-  
   def self.all
     @@all
   end
   
 end
+
