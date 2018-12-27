@@ -4,18 +4,20 @@ require 'net/http'
 require 'uri'
 
 class Scraper
-    def get_films
+    def self.get_films
       uri = URI.parse("https://ghibliapi.herokuapp.com/films")
       request = Net::HTTP::Get.new(uri)
       request.content_type = "application/json"
 
-    req_options = {
-    use_ssl: uri.scheme == "https",
-    }
+      req_options = {
+      use_ssl: uri.scheme == "https",
+      }
 
       response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
       http.request(request)
     end
+  end
+end
 
 def make_films_from_page
   uri = URI.parse("https://ghibliapi.herokuapp.com/films")
@@ -36,6 +38,5 @@ def make_films_from_page
   film[:producer] = http.request("producer").text
   film[:rt_score] = http.request("rt_score").text
   film[:description] = http.request("description").text
-end
-end
+
 end

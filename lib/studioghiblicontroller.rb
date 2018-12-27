@@ -1,7 +1,9 @@
 require_relative "../lib/film.rb"
 require_relative "../lib/api_scraper.rb"
+require 'net/http'
+require 'uri'
 
-class StudioGhibliController < Scraper
+class StudioGhibliController
   BASE_URL = "https://ghibliapi.herokuapp.com"
   
   attr_reader :title, :release_date, :producer, :rt_score, :description
@@ -37,9 +39,8 @@ class StudioGhibliController < Scraper
   end
   
   def list_films
-  films_array = Scraper.get_films(BASE_URL + '/films')
+  films_array = Scraper.get_films
   Film.create_films(films_array)
-    
   end
     puts "Enter a film name for its information"
   
