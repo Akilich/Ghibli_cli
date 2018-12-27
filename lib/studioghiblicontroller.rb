@@ -4,17 +4,9 @@ require 'net/http'
 require 'uri'
 
 class StudioGhibliController
-  BASE_URL = "https://ghibliapi.herokuapp.com"
   
   attr_reader :title, :release_date, :producer, :rt_score, :description
   
-  def initialize
-    @title
-    @release_date
-    @producer
-    @rt_score
-    @description 
-  end
   
   def call
     input = ''
@@ -39,12 +31,10 @@ class StudioGhibliController
   end
   
   def list_films
-  films_array = Scraper.get_films
-  Film.create_films(films_array)
+    films_array = Scraper.get_films
+    Film.create_films(films_array)
   end
-    puts "Enter a film name for its information"
-  
-      
+    
   
   def film_info
     Film.all.each do |film|
@@ -56,8 +46,6 @@ class StudioGhibliController
       puts "To generate a random film suggestion, enter 'random'."
     end
   
-  
-    
   def generate_random_film
     Film.all.sample
     puts "#{film.title}"

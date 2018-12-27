@@ -19,7 +19,7 @@ class Scraper
   end
 end
 
-def make_films_from_page
+def self.make_films_from_page
   uri = URI.parse("https://ghibliapi.herokuapp.com/films")
       request = Net::HTTP::Get.new(uri)
       request.content_type = "application/json"
