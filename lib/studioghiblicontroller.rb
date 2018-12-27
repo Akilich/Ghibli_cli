@@ -1,7 +1,6 @@
 require_relative "../lib/film.rb"
 require_relative "../lib/api_scraper.rb"
-require 'net/http'
-require 'uri'
+
 
 class StudioGhibliController
   
