@@ -41,11 +41,12 @@ end
        when 'random'
         generate_random_film
         puts "Ah, a classic! Grab some popcorn, you're in for a treat."
-      else
-        puts "What was that? Type a film title, 'list films', or 'exit'"
-      end
+      #else
+      #  puts "What was that? Type a film title, 'list films', or 'exit'"
+      #end
     end
   end
+end
 
 def goodbye
   puts "See you next time!"
@@ -53,9 +54,9 @@ end
 
   def film_info
     Film.all.each do |film|
-      puts " title: " "#{film.title.upcase}"
+      puts " title: " "#{film.title}"
       puts "  release_date:"  " #{film.release_date}"
-      puts "  producer:"  " #{film.producer}"
+      puts "  director:"  " #{film.director}"
       puts "  rt_score:"  " #{film.rt_score}"
       puts "  description:"  " #{film.description}"
       puts "To generate a random film suggestion, enter 'random'."
