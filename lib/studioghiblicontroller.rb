@@ -8,6 +8,7 @@ class StudioGhibliController
   attr_reader :film , :title
 
   def call
+    puts "Welcome to the Studio Ghibli Movie Generator!"
     list_films
     menu
     goodbye
@@ -21,12 +22,10 @@ class StudioGhibliController
   end
 
   def list_films
-    puts "Welcome to the Studio Ghibli Movie Generator!"
     #-here doc - https://ghibliapi.herokuapp.com/films
     puts "-All Studio Ghibli Films-"
-    puts <<-DOC
-          "Castle in the Sky", "My Neighbor Totoro", "Kiki's Delivery Service", "Only Yesterday", "Porco Rosso", "Pom Poko", "Whisper of the Heart", "Princess Mononoke", "My Neighbors the Yamadas", "Spirited Away", "The Cat Returns", "Howl's Moving Castle", "Tales from Earthsea", "Ponyo", "Arrietty", "From Up on Poppy Hill", "The Wind Rises", "The Tale of the Princess Kaguya", "When Marnie Was There"
-          DOC
+# @films=StudioGhibliController::Film.all
+# there is an object called Film with a class method called all and should return a bunch of films (@films)
         end
 
 
@@ -36,15 +35,18 @@ class StudioGhibliController
     while input != 'exit'
     puts "To see information about a film, enter a film title from the list above."
     puts "To generate a random film suggestion, enter 'random'."
+    puts "To see the film list again, type 'list films'"
     input = gets.chomp
       case input
-       when "film"
-        film_info
+       when "list films"
+        list_films
        when 'random'
         generate_random_film
         puts "Ah, a classic! Grab some popcorn, you're in for a treat."
+      else
+        puts "What was that? Type a film title, 'list films', or 'exit'"
       end
-    end
+      end
   end
 
 def goodbye
