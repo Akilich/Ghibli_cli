@@ -5,7 +5,7 @@ require 'pry'
 
 class StudioGhibliController < Film
 
-Scraper.get_films
+#Scraper.get_films
 
   def call
     puts "Welcome to the Studio Ghibli Movie Generator!"
@@ -17,7 +17,7 @@ end
 
   def list_films
     puts "-All Studio Ghibli Films-"
-    @films = StudioGhibliController::Film.all
+    @films = Film.all
     @films.each.with_index do |film, i|
       puts "#{i}. #{film.title}"
     end

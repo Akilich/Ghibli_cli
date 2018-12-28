@@ -11,12 +11,12 @@ class Scraper
   def self.get_films
     data = open("https://ghibliapi.herokuapp.com/films").read
     JSON.parse(data)
-      film.new[{}]
-      film.title = data.parse("title").text.strip
-      film.release_date = data.parse("release_date").text.strip
-      film.director = data.parse("director").text.strip
-      film.rt_score = data.parse("rt_score").text.strip 
-      film.description = data.parse("description").text.strip
+      #film.new[{}]
+     # film.title = data.parse("title").text.strip
+      #film.release_date = data.parse("release_date").text.strip
+      #film.director = data.parse("director").text.strip
+     # film.rt_score = data.parse("rt_score").text.strip 
+      #film.description = data.parse("description").text.strip
   end
 end
 

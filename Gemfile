@@ -7,3 +7,6 @@ gem 'pry'
 gem 'require_all'
 gem 'pry-byebug'
 
+```ruby
+gem 'Ghibli_cli'
+```
