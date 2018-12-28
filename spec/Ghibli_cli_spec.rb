@@ -1,7 +1,6 @@
-#require_relative '../lib/version.rb'
-extend Controller
+require_relative '../lib/version.rb'
 
-RSpec.describe Ghibli_cli do
+RSpec.describe "Ghibli_cli" do
   it "has a version number" do
     expect(Controller::VERSION).not_to be nil
   end
