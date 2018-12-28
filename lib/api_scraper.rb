@@ -5,7 +5,7 @@ require 'open-uri'
 require 'net/http'
 require 'rubygems'
 require 'json'
-require 'pry'
+
 
 class Scraper
     def get_film
@@ -23,9 +23,10 @@ class Film
      end
    end
  end
- end
  
- api = StudioGhibliController.new
-results = api.get_film.map do |title_hash|
-  Film.new(title_hash)
+ 
+  api = Scraper.new
+    results = api.get_film.map do |title_hash|
+      Film.new(title_hash)
+  end
 end
