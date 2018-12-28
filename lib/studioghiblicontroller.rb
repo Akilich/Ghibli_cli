@@ -3,9 +3,8 @@ require_relative "../lib/api_scraper.rb"
 
 require 'pry'
 
-class StudioGhibliController
+class StudioGhibliController < Film
 
-  attr_reader :film , :title
 
   def call
     puts "Welcome to the Studio Ghibli Movie Generator!"
@@ -13,20 +12,18 @@ class StudioGhibliController
     menu
     goodbye
   end
-
-
-
-     # when 'list films'
-     #   list_films
-
-  end
+end
 
   def list_films
     #-here doc - https://ghibliapi.herokuapp.com/films
     puts "-All Studio Ghibli Films-"
-# @films=StudioGhibliController::Film.all
-# there is an object called Film with a class method called all and should return a bunch of films (@films)
-        end
+    @films = StudioGhibliController::Film.all
+    @films.each.with_index(1) do |film, i|
+      puts "#{i}, #{film.title}"
+    end
+        # @films=StudioGhibliController::Film.all
+        # there is an object called Film with a class method called all and should return a bunch of films (@films)
+    end
 
 
   def menu
@@ -38,6 +35,8 @@ class StudioGhibliController
     puts "To see the film list again, type 'list films'"
     input = gets.chomp
       case input
+      when "film title"
+        film_info
        when "list films"
         list_films
        when 'random'
@@ -46,7 +45,7 @@ class StudioGhibliController
       else
         puts "What was that? Type a film title, 'list films', or 'exit'"
       end
-      end
+    end
   end
 
 def goodbye

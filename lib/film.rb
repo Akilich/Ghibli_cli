@@ -1,6 +1,6 @@
 require_relative "../lib/api_scraper.rb"
 require_relative "../lib/studioghiblicontroller.rb"
-
+require 'pry'
 
 class Film
   @@all = []
@@ -12,9 +12,9 @@ class Film
   end
 
   def self.all
-     puts <<-DOC
-          "Castle in the Sky", "Grave of the Fireflies", "My Neighbor Totoro", "Kiki's Delivery Service", "Only Yesterday", "Porco Rosso", "Pom Poko", "Whisper of the Heart", "Princess Mononoke", "My Neighbors the Yamadas", "Spirited Away", "The Cat Returns", "Howl's Moving Castle", "Tales from Earthsea", "Ponyo", "Arrietty", "From Up on Poppy Hill", "The Wind Rises", "The Tale of the Princess Kaguya", "When Marnie Was There"
-          DOC
+     #puts <<-DOC
+     #     "Castle in the Sky", "Grave of the Fireflies", "My Neighbor Totoro", "Kiki's Delivery Service", "Only Yesterday", "Porco Rosso", "Pom Poko", "Whisper of the Heart", "Princess Mononoke", "My Neighbors the Yamadas", "Spirited Away", "The Cat Returns", "Howl's Moving Castle", "Tales from Earthsea", "Ponyo", "Arrietty", "From Up on Poppy Hill", "The Wind Rises", "The Tale of the Princess Kaguya", "When Marnie Was There"
+     #     DOC
     film_1 = self.new
     film_1.title = "Castle in the Sky"
     film_1.release_date = "1986"
