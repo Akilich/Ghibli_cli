@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require './lib/studioghiblicontroller.rb'
-
+require_relative "../lib/film.rb"
+require_relative "../lib/api_scraper.rb"
 
 StudioGhibliController.new.call
