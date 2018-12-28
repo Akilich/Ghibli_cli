@@ -17,7 +17,7 @@ class StudioGhibliController
       case input
       when 'list films'
         list_films
-      when "#{title}"
+      when "film"
         film_info
       when 'random'
         generate_random_film
@@ -28,7 +28,7 @@ class StudioGhibliController
   
   def list_films
     Film.all
-    puts "#{film.title}"
+    puts Film.all
   end
     
   
