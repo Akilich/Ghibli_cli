@@ -27,12 +27,12 @@ end
 
 
   def menu
-    puts "To quit, type 'exit'."
     input = ''
     while input != 'exit'
     puts "To see information about a film, enter a film title from the list above."
     puts "To generate a random film suggestion, enter 'random'."
     puts "To see the film list again, type 'list films'"
+    puts "To quit, type 'exit'."
     input = gets.chomp
       case input
       when "film title"
