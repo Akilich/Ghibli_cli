@@ -1,11 +1,8 @@
 require_relative "../lib/film.rb"
 require_relative "../lib/api_scraper.rb"
 
-require 'pry'
+class StudioGhibliController 
 
-class StudioGhibliController < Film
-
-#Scraper.get_films
 
   def call
     puts "Welcome to the Studio Ghibli Movie Generator!"
