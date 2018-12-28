@@ -14,7 +14,7 @@ class Scraper
  
 
 class Film
-     attr_accessor :title, :release_date, :producer, :rt_score, :description
+     attr_accessor :title
   def initialize(title_hash)
     title_hash.each do |method,arg|
       if self.respond_to?("#{method}=")

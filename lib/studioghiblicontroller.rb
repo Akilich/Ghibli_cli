@@ -29,10 +29,10 @@ class StudioGhibliController
   end
   
   def list_films
-    Film.all
+    Film.all.each do |title_hash|
     puts "#{film.title}"
+    end
   end
-    
   
   def film_info
     Film.all.each do |film|

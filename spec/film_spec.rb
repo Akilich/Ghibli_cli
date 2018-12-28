@@ -68,7 +68,7 @@ describe "Film" do
 
   describe ".create" do
     it "initializes and saves the film" do
-      created_film = Film.create("Fear of Tigers")
+      created_film = Film.create("Grave of the Fireflies")
 
       expect(Film.all).to include(created_film)
     end
