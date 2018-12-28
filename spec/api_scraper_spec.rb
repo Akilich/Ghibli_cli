@@ -5,10 +5,10 @@ describe "Scraper" do
 
   let(:scraper) {Scraper.new}
 
-  describe "#get_films" do
+  describe "#get_film" do
     it "uses nokogiri to get the HTML from a web page" do
-      doc = Nokogiri::HTML(open("https://ghibliapi.herokuapp.com/films"))
-      expect{scraper.get_films}.to_not raise_error
+      doc = scraper.get_film
+      expect{scraper.get_film}.to_not raise_error
       expect(doc).to be_a(Nokogiri::HTML::Document)
     end
   end

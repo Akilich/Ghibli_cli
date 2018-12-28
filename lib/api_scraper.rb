@@ -8,9 +8,8 @@ require 'json'
 require 'pry'
 
 class Scraper
-    def self.get_films
-    doc = Nokogiri::HTML(open("https://ghibliapi.herokuapp.com/films"))
-    title = doc.search("title").text
+    def get_film
+      Nokogiri::HTML(open("https://ghibliapi.herokuapp.com/films"))
     end
  
 
