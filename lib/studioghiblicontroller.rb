@@ -15,11 +15,10 @@ class StudioGhibliController < Film
 end
 
   def list_films
-    #-here doc - https://ghibliapi.herokuapp.com/films
     puts "-All Studio Ghibli Films-"
     @films = StudioGhibliController::Film.all
-    @films.each.with_index(1) do |film, i|
-      puts "#{i}, #{film.title}"
+    @films.each.with_index do |film, i|
+      puts "#{i}. #{film.title}"
     end
         # @films=StudioGhibliController::Film.all
         # there is an object called Film with a class method called all and should return a bunch of films (@films)
