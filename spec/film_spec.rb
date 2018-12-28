@@ -2,33 +2,8 @@ require_relative "./spec_helper.rb"
 require_relative "../lib/film.rb"
 
 describe "Film" do
-  let(:film) { Film.new("Castle in the Sky") }
 
-  describe "#initialize" do
-    it "accepts a title for the new film" do
-      new_film = Film.new("My Neighbor Totoro")
-
-      new_film_title = new_film.instance_variable_get(:@title)
-
-      expect(new_film_title).to eq("My Neighbor Totoro")
-    end
-  end
-
-  describe "#title" do
-    it "retrieves the title of a film" do
-      expect(film.title).to eq("Castle in the Sky")
-    end
-  end
-
-  describe "#title=" do
-    it "can set the title of a film" do
-      film.title = "Kiki's Delivery Service"
-
-      film_title = film.instance_variable_get(:@title)
-
-      expect(film_title).to eq("Kiki's Delivery Service")
-    end
-  end
+  let(:film) {Film.new}
 
   describe "@@all" do
     it "is initialized as an empty array" do
@@ -40,7 +15,7 @@ describe "Film" do
 
   describe ".all" do
     it "returns the class variable @@all" do
-      expect(Film.all).to match_array([])
+      expect(Film.all).to match_array([film])
 
       Film.class_variable_set(:@@all, [film])
 
@@ -48,29 +23,52 @@ describe "Film" do
     end
   end
 
-  describe ".destroy_all" do
-    it "resets the @@all class variable to an empty array" do
-      Film.class_variable_set(:@@all, [film])
+  context "instance methods" do
+    describe "#title" do
+      it "has a setter and a getter method for title" do
+        film.title = "Castle in the Sky"
+        expect(film.title).to eq("Castle in the Sky")
+      end
+    end
 
-      Film.destroy_all
+    describe "#release_date" do
+      it "has a setter and a getter method for a films's release date" do
+        film.release_date = "1986"
+        expect(film.release_date).to eq("1986")
+      end
+    end
 
-      expect(Film.all).to match_array([])
+describe "#producer" do
+      it "has a setter and a getter method for a film's producer" do
+        film.producer = "Isao Takahata"
+        expect(film.producer).to eq("Isao Takahata")
+      end
+    end
+
+    describe "#rt_score" do
+      it "has a setter and a getter method for a film's Rotten Tomatoes score" do
+        film.rt_score = "95"
+        expect(film.rt_score).to eq("95")
+      end
+    end
+
+    describe "#description" do
+      it "has a setter and a getter method for a film's description" do
+        film.description = "The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa's science to make himself ruler of the world."
+        expect(film.description).to eq("The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa's science to make himself ruler of the world.")
+      end
     end
   end
 
-  describe "#save" do
-    it "adds the Film instance to the @@all class variable" do
-      film.save
 
-      expect(Film.all).to include(film)
-    end
-  end
-
-  describe ".create" do
-    it "initializes and saves the film" do
-      created_film = Film.create("Grave of the Fireflies")
-
-      expect(Film.all).to include(created_film)
+  context "class methods" do
+    describe ".all" do
+      it "returns an array of all the instances of the Film class" do
+        film_one = Film.new
+        film_two = Film.new
+        film_three = Film.new
+        expect(Film.all).to match_array(["Castle in the Sky", "My Neighbor Totoro", "Kiki's Delivery Service", "Only Yesterday", "Porco Rosso", "Pom Poko", "Whisper of the Heart", "Princess Mononoke", "My Neighbors the Yamadas", "Spirited Away", "The Cat Returns", "Howl's Moving Castle", "Tales from Earthsea", "Ponyo", "Arrietty", "From Up on Poppy Hill", "The Wind Rises", "The Tale of the Princess Kaguya", "When Marnie Was There"])
+      end
     end
   end
 end
