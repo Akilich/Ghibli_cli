@@ -9,38 +9,21 @@ require 'json'
 
 class Scraper
 
-  def self.create_film
-    film = []
-
-    film << self.get_film
-
-    film
-  end
-
-    def get_film
-      Nokogiri::HTML(open("https://ghibliapi.herokuapp.com/films"))
-
-
+    def self.scrape_api
+      films = []
+      films << self.get_film
+      film
+    end
+    
+  def self.get_film
+    Nokogiri::HTML(open("https://ghibliapi.herokuapp.com/films"))
+      
       film = self.new
       film.title = doc.search("title").text.strip
-
+      film.release_date = doc.search("release_date").text.strip
+      film.director = doc.search("director").text.strip
+      film.rt_score = doc.search("rt_score").text.strip 
+      film.description = doc.search("description").text.strip
       film
     end
 end
-#class Film
-#     attr_accessor :title
-#  def initialize(title_hash)
- #   title_hash.each do |title,arg|
- #     if self.respond_to?("#{title}=")
- #       self.send("#{title}=",arg)
- #     end
- #    end
- #  end
- #end
-
-
-  #api = Scraper.new
-  #  results = api.get_film.map do |title_hash|
-  #    Film.new(title_hash)
- # end
-#end
