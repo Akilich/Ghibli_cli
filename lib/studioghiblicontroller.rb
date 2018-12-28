@@ -22,22 +22,21 @@ end
   def menu
     input = ''
     while input != 'exit'
-    puts "To see information about a film, enter a film title from the list above."
+    puts "To see information about a film, enter the film title number from the list above."
     puts "To generate a random film suggestion, enter 'random'."
     puts "To see the film list again, type 'list films'"
     puts "To quit, type 'exit'."
     input = gets.chomp
+    if input.to_i > 0
+      puts @films[input.to_i-1]
+    elsif input == "list films"
+      list_films
+    else
+      puts "What was that? Type a film title, 'list films', or 'exit'"
       case input
-        when "film title"
-        film_info
-       when "list films"
-        list_films
        when 'random'
         generate_random_film
         puts "Ah, a classic! Grab some popcorn, you're in for a treat."
-      #else
-      #  puts "What was that? Type a film title, 'list films', or 'exit'"
-      #end
     end
   end
 end
@@ -61,3 +60,4 @@ end
     puts "#{film.title}"
    end
   end
+end

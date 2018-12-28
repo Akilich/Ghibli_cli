@@ -2,7 +2,7 @@
 require 'pry'
 
 class Film
-  @@all = []
+  @@all = [ ]
   attr_accessor :title, :release_date, :director, :rt_score, :description
   
   def self.all
