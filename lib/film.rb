@@ -4,15 +4,12 @@ require_relative "../lib/studioghiblicontroller.rb"
 
 class Film
   @@all = []
-  attr_accessor :title, :release_date, :producer, :rt_score, :description
-
+  attr_accessor :title
+  
   def initialize
     @title = title
-    @release_date = release_date
-    @producer = producer
-    @rt_score = rt_score
-    @description = description
     @@all << self
+    @@all = []
   end
 
   def self.all
