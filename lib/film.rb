@@ -1,5 +1,4 @@
-require_relative "../lib/api_scraper.rb"
-require_relative "../lib/studioghiblicontroller.rb"
+
 require 'pry'
 
 class Film

@@ -1,6 +1,5 @@
 class StudioGhibliController 
-
-
+  
   def call
     puts "Welcome to the Studio Ghibli Movie Generator!"
     list_films
@@ -29,7 +28,7 @@ end
     puts "To quit, type 'exit'."
     input = gets.chomp
       case input
-      when "film title"
+        when "film title"
         film_info
        when "list films"
         list_films
