@@ -7,9 +7,9 @@ class Film
   
   attr_accessor :title, :release_date, :producer, :rt_score, :description
   
-  def initialize(film_hash)
+  def initialize
      @@all << self
-     @title = film_hash["title"]
+     @title = title
   end
   
   def self.all

@@ -3,7 +3,6 @@ require_relative "../lib/api_scraper.rb"
 
 
 class StudioGhibliController
-  attr_accessor :film
   
   def call
     input = ''
