@@ -6,17 +6,16 @@ class Film
   @@all = []
   attr_accessor :title, :release_date, :director, :rt_score, :description
   
-  def initialize
-    @title = title
-    @@all << self
-  end
+  def initialize(title_hash)
+    title_hash.each do |method,arg|
+      if self.respond_to?("#{method}=")
+        self.send("#{method}=",arg) 
+      end   
+     end
+   end
 
   def self.all
     @@all
-  end
-
-  def self.destroy_all
-    @@all.clear
   end
 
   def self.save
@@ -29,3 +28,5 @@ class Film
     film
   end
 end
+
+  

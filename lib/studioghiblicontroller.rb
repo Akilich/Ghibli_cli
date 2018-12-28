@@ -5,6 +5,7 @@ require 'pry'
 
 class StudioGhibliController < Film
 
+Scraper.get_films
 
   def call
     puts "Welcome to the Studio Ghibli Movie Generator!"
