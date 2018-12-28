@@ -1,4 +1,7 @@
- require_relative "./lib/version"
-require_relative "../lib/film.rb"
 require 'nokogiri'
 require 'open-uri'
+require 'json'
+require_relative "./version"
+require_relative "./api_scraper"
+require_relative "./film"
+require_relative "./studioghiblicontroller"
