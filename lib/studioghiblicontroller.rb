@@ -20,7 +20,7 @@ end
 
 
   def menu
-    input = ''
+    input = nil
     while input != 'exit'
     puts "To see information about a film, enter the film title number from the list above."
     puts "To generate a random film suggestion, enter 'random'."

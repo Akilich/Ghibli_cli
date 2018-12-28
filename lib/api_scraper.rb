@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require_relative "../lib/film.rb"
+
 require 'nokogiri'
 require 'open-uri'
 require 'net/http'
@@ -20,20 +20,20 @@ class Scraper
   end
 end
 
-class Film
-  def self.initialize(title_hash)
-    title_hash.each do |key,value|
-      if self.respond_to?("#{key}=")
-        self.send("#{key}=",value) 
-      end   
-     end
+#class Film
+#  def self.initialize(title_hash)
+#    title_hash.each do |key,value|
+#      if self.respond_to?("#{key}=")
+#        self.send("#{key}=",value) 
+#      end   
+#     end
    
-  film_data = Scraper.new
-  results = film_data.get_films.map do |title_hash|
-  Film.new(title_hash)
-end
-end
-end
+#  film_data = Scraper.new
+#  results = film_data.get_films.map do |title_hash|
+#  Film.new(title_hash)
+#end
+#end
+#end
 
 
 
