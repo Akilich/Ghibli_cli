@@ -4,6 +4,8 @@ require_relative "../lib/api_scraper.rb"
 
 class StudioGhibliController
   
+  attr_reader :film , :title
+  
   def call
     input = ''
     while input != 'exit'
@@ -28,7 +30,7 @@ class StudioGhibliController
   
   def list_films
     Film.all
-    puts Film.all
+    puts "#{film.title}"
   end
     
   

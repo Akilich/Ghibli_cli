@@ -24,3 +24,8 @@ class Film
    end
  end
  end
+ 
+ api = StudioGhibliController.new
+results = api.get_film.map do |title_hash|
+  Film.new(title_hash)
+end
