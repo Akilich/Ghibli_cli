@@ -27,12 +27,12 @@ end
     puts "To see the film list again, type 'list films'"
     puts "To quit, type 'exit'."
     input = gets.chomp
+    
     if input.to_i > 0
-      puts @films[input.to_i-1]
-    elsif input == "list films"
+      the_film = @films[input.to_i-1] 
+      puts "#{i}. #{film.title}"
+    else input == "list films"
       list_films
-    else
-      puts "What was that? Type a film title, 'list films', or 'exit'"
       case input
        when 'random'
         generate_random_film
