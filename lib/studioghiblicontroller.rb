@@ -2,10 +2,10 @@ class StudioGhibliController
   
   def call
     puts "Welcome to the Studio Ghibli Movie Generator!"
+    puts "To see information about a film, enter the film title number from the list below."
     list_films
     menu
   end
-
 
   def list_films
     puts "-All Studio Ghibli Films-"
@@ -14,14 +14,10 @@ class StudioGhibliController
       puts "#{i+1}. #{film.title}"
     end
   end
-        # @films=StudioGhibliController::Film.all
-        # there is an object called Film with a class method called all and should return a bunch of films (@films)
-
-
+   
   def menu
     input = nil
     while input != 'exit'
-      puts "To see information about a film, enter the film title number from the list above."
       puts "To generate a random film suggestion, enter 'random'."
       puts "To see the film list again, type 'list films'"
       puts "To quit, type 'exit'."
