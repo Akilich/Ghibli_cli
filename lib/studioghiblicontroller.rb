@@ -4,7 +4,6 @@ class StudioGhibliController
     puts "Welcome to the Studio Ghibli Movie Generator!"
     list_films
     menu
-    goodbye
   end
 
 
@@ -31,12 +30,14 @@ class StudioGhibliController
       if input.to_i > 0
         the_film = @films[input.to_i-1] 
         film_info(the_film)
-      else input == "list films"
+      elsif input == "list films"
         list_films
+      else input == "exit"
+        goodbye
         case input
         when 'random'
-          generate_random_film
           puts "Ah, a classic! Grab some popcorn, you're in for a treat."
+          generate_random_film
         end
       end
     end
@@ -47,16 +48,19 @@ class StudioGhibliController
   end
 
   def film_info(film)
-    puts " title: " "#{film.title}"
-    puts "  release_date:"  " #{film.release_date}"
-    puts "  director:"  " #{film.director}"
-    puts "  rt_score:"  " #{film.rt_score}"
-    puts "  description:"  " #{film.description}"
-    puts "To generate a random film suggestion, enter 'random'."
+    puts " TITLE: " "#{film.title}"
+    puts " RELEASE DATE:"  " #{film.release_date}"
+    puts " DIRECTOR:"  " #{film.director}"
+    puts " ROTTEN TOMATOES SCORE:"  " #{film.rt_score}"
+    puts " DESCRIPTION:"  " #{film.description}"
   end
 
   def generate_random_film
     film = Film.all.sample
-    puts "#{film.title}"
+    puts " TITLE: " "#{film.title}"
+    puts " RELEASE DATE:"  " #{film.release_date}"
+    puts " DIRECTOR:"  " #{film.director}"
+    puts " ROTTEN TOMATOES SCORE:"  " #{film.rt_score}"
+    puts " DESCRIPTION:"  " #{film.description}"
   end
 end
