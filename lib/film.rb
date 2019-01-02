@@ -11,8 +11,8 @@ class Film
   end
   
   def initialize(title_hash)
-    title_hash.each do |method,arg|
-      if self.respond_to?("#{method}=")
+    title_hash.each do |method,arg|  #iterating over each element in the hash to take in two arguments, "method" and "argument"
+      if self.respond_to?("#{method}=") #if that instance responds to a specific method, then send that specific method and argument
         self.send("#{method}=",arg) 
       end   
     end
@@ -31,6 +31,4 @@ class Film
   end
 end  
 
- 
-  
   Film.create_from_api

@@ -1,6 +1,6 @@
 # GhibliCli
 
-The Ghibli_Cli is an application that gives users a list of all Studio Ghibli films. It then lets users enter the film title and gives them detailed information about the film. An extra feature lets users generate a random Ghibli film when they type the word “random”. 
+The Ghibli_Cli is an application that gives users a list of all Studio Ghibli films and provides detailed information about each film. Users can simply enter the number of a film from the provided film list, and will receive detailed information about that corresponding film. Users also have the option of generating a random film by entering "random". That will output a random Studio Ghibli film, along with the films detailed information. 
 
 ## Installation
 
