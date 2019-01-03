@@ -2,7 +2,7 @@ class StudioGhibliController
   
   def call
     puts "Welcome to the Studio Ghibli Movie Generator!"
-    puts "To see information about a film, enter the film title number from the list below."
+    puts "To see information about a film, enter the film number from the list below."
     list_films
     menu
   end
